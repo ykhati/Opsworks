@@ -1,0 +1,22 @@
+{
+  "name": "opsworks-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "AwsTest.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "async": "^2.1.5",
+    "aws-sdk": "^2.6.10",
+    "fs": "0.0.1-security",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {}
+}
