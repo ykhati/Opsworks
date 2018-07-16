@@ -33,11 +33,11 @@ module.exports = function(env) {
         },
 
         /* Yogesh - App Default Settings */
-        defaultLayerParams: {
+        defaultAppParams: {
             Type: 'java',
             AppSource: {
-              Password: 'Oct!1234',
-              Type: git,
+              Type: 'git',
+              Password: 'Oct!1234'
               Url: 'https://github.com/ykhati/Opsworks.git',
               Username: 'ykhati'
             },
