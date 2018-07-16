@@ -13,7 +13,7 @@ function OpsWorksHelper(opsworks, env) {
         opsworks.createStack(stackParams, function(err, stackData) {
             if (err) console.log(err, err.stack);
             else {
-                console.log("StackData: "stackData);
+                console.log("StackData: ",stackData);
                 defaultParams.defaultLayerParams.StackId = stackData.StackId;
                 defaultParams.defaultLayerParams.Name = appName;
                 defaultParams.defaultLayerParams.Shortname = appName;
