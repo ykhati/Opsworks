@@ -1,6 +1,4 @@
-/**
- * Created by nvargas on 9/7/16.
- */
+
 var fs = require('fs');
 var _ = require('underscore');
 
@@ -15,7 +13,7 @@ function OpsWorksHelper(opsworks, env) {
         opsworks.createStack(stackParams, function(err, stackData) {
             if (err) console.log(err, err.stack);
             else {
-                console.log(stackData);
+                console.log("StackData: "stackData);
                 defaultParams.defaultLayerParams.StackId = stackData.StackId;
                 defaultParams.defaultLayerParams.Name = appName;
                 defaultParams.defaultLayerParams.Shortname = appName;
@@ -231,30 +229,15 @@ function OpsWorksHelper(opsworks, env) {
                         defaultParams.defaultInstanceParams.InstanceType = instanceType;
 
                         switch(env) {
-                            case 'prod':
-                                defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-1b';
-                                defaultParams.defaultInstanceParams.Hostname = hostName + '-app-1';
-                                defaultParams.defaultInstanceParams.SubnetId = 'subnet-c7b5559f';
-
-                                createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
-                                    defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-1c';
-                                    defaultParams.defaultInstanceParams.Hostname = hostName + '-app-2';
-                                    defaultParams.defaultInstanceParams.SubnetId = 'subnet-3cba6658';
-
-                                    createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
-                                        done();
-                                    });
-                                });
-                                break;
                             case 'qa':
-                                defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-1a';
+                                defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2b';
                                 defaultParams.defaultInstanceParams.Hostname = hostName + '-app-1';
-                                defaultParams.defaultInstanceParams.SubnetId = 'subnet-529d690a';
+                                defaultParams.defaultInstanceParams.SubnetId = 'subnet-b4e190cd';
 
                                 createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
-                                    defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-1b';
+                                    defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2a';
                                     defaultParams.defaultInstanceParams.Hostname = hostName + '-app-2';
-                                    defaultParams.defaultInstanceParams.SubnetId = 'subnet-b32889d7';
+                                    defaultParams.defaultInstanceParams.SubnetId = 'subnet-85ec7ece';
 
                                     createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
                                         done();
