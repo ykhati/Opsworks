@@ -21,6 +21,11 @@ function OpsWorksHelper(opsworks, env) {
                 createLayer(stackData, defaultParams.defaultLayerParams, instanceType, appName, function() {
                     done(stackData);
                 });
+
+                //yogesh
+                createApp(stackData, defaultParams.defaultAppParams, instanceType, appName, function() {
+                  done(stackData);
+                });
             }
         });
     };
@@ -247,6 +252,16 @@ function OpsWorksHelper(opsworks, env) {
                         }
                     }
                 });
+            }
+        });
+    };
+
+    var createApp = function(stackData, appParams, instanceType, hostName, done) {
+
+        opsworks.createApp(appParams, function(err, appData) {
+            if (err) console.log('There was an error creating the app.', err, err.stack);
+            else {
+                console.log(appData);
             }
         });
     };

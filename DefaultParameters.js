@@ -23,13 +23,25 @@ module.exports = function(env) {
         defaultLayerParams: {
             Type: 'java-app',
             CustomRecipes: {
-                Setup: [ 'java::deploy' ]
+                Deploy: [ 'java::deploy' ]
             },
             AutoAssignElasticIps: false,
             AutoAssignPublicIps: false,
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
             UseEbsOptimizedInstances: false
+        },
+
+        /* Yogesh - App Default Settings */
+        defaultLayerParams: {
+            Type: 'java',
+            AppSource: {
+              Password: 'Oct!1234',
+              Type: git,
+              Url: 'https://github.com/ykhati/Opsworks.git',
+              Username: 'ykhati'
+            },
+            EnableSsl: false
         },
 
         /* Default Instance Settings */
