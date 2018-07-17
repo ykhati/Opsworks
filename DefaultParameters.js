@@ -2,6 +2,21 @@ var fs = require('fs');
 
 module.exports = function(env) {
 
+    var customDoc = {
+                        "opsworks_java": {
+                        "jvm_version": 8,
+                        "java_app_server_version": 8
+                        },
+                        "custom_env": {
+                          "gigya-qa": {
+                            "type": "java",
+                            "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
+                          }
+                        }
+                    }
+
+    var jsonDoc = JSON.stringify(customDoc)    ;
+
     var settings = {
         defaultStackParams: {
             Region: 'us-west-2',
@@ -19,21 +34,6 @@ module.exports = function(env) {
             UseOpsworksSecurityGroups: true
         },
 
-
-        var customDoc = {
-                            "opsworks_java": {
-                            "jvm_version": 8,
-                            "java_app_server_version": 8
-                            },
-                            "custom_env": {
-                              "gigya-qa": {
-                                "type": "java",
-                                "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
-                              }
-                            }
-                        }
-
-        var jsonDoc = JSON.stringify(customDoc)    ;
         /* Layer Default Settings */
         defaultLayerParams: {
             Type: 'java-app',
