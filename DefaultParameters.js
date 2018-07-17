@@ -61,8 +61,7 @@ module.exports = function(env) {
 
         /* Default Instance Settings */
         defaultInstanceParams: {
-            Architecture: 'x86_64',
-            SshKeyName: 'yogesh-west2-keypair.pem'
+            Architecture: 'x86_64'
         }
     };
 
