@@ -19,6 +19,21 @@ module.exports = function(env) {
             UseOpsworksSecurityGroups: true
         },
 
+
+        var customDoc = {
+                            "opsworks_java": {
+                            "jvm_version": 8,
+                            "java_app_server_version": 8
+                            },
+                            "custom_env": {
+                              "gigya-qa": {
+                                "type": "java",
+                                "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
+                              }
+                            }
+                        }
+
+        var jsonDoc = JSON.stringify(customDoc)    ;
         /* Layer Default Settings */
         defaultLayerParams: {
             Type: 'java-app',
@@ -30,18 +45,7 @@ module.exports = function(env) {
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
             UseEbsOptimizedInstances: false,
-            CustomJson: {
-                           "opsworks_java": {
-                               "jvm_version": 8,
-                               "java_app_server_version": 8
-                           },
-                           "custom_env": {
-                               "gigya-qa": {
-                                   "type": "java",
-                                   "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
-                               }
-                           }
-                        }
+            CustomJson: jsonDoc
         },
 
         /* Yogesh - App Default Settings */
