@@ -37,9 +37,9 @@ module.exports = function(env) {
         /* Layer Default Settings */
         defaultLayerParams: {
             Type: 'java-app',
-            CustomRecipes: {
+            /*CustomRecipes: {
                 Deploy: [ 'java::deploy' ]
-            },
+            },*/
             AutoAssignElasticIps: false,
             AutoAssignPublicIps: false,
             EnableAutoHealing: true,

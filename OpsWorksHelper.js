@@ -22,7 +22,7 @@ function OpsWorksHelper(opsworks, env) {
                     done(stackData);
                 });
 
-                //yogesh
+                /*yogesh
 
                 defaultParams.defaultAppParams.StackId = stackData.StackId;
                 defaultParams.defaultAppParams.Name = appName;
@@ -31,6 +31,7 @@ function OpsWorksHelper(opsworks, env) {
                 createApp(stackData, defaultParams.defaultAppParams, instanceType, appName, function() {
                   done(stackData);
                 });
+                */
             }
         });
     };
