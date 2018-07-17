@@ -31,7 +31,7 @@ function OpsWorksHelper(opsworks, env) {
                 createApp(stackData, defaultParams.defaultAppParams, instanceType, appName, function() {
                   done(stackData);
                 });
-                
+
             }
         });
     };
@@ -240,15 +240,21 @@ function OpsWorksHelper(opsworks, env) {
                         defaultParams.defaultInstanceParams.InstanceType = instanceType;
 
                         switch(env) {
-                            case 'qa':
-                                defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2b';
-                                defaultParams.defaultInstanceParams.Hostname = hostName + '-app-1';
-                                defaultParams.defaultInstanceParams.SubnetId = 'subnet-b4e190cd';
+                          case 'qa':
+                              defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2b';
+                              defaultParams.defaultInstanceParams.Hostname = hostName + '-app-1';
+                              defaultParams.defaultInstanceParams.SubnetId = 'subnet-b4e190cd';
 
-                                createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
-                                    done();
-                                });
-                                break;
+                              createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
+                                  defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2a';
+                                  defaultParams.defaultInstanceParams.Hostname = hostName + '-app-2';
+                                  defaultParams.defaultInstanceParams.SubnetId = 'subnet-85ec7ece';
+
+                                  createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
+                                      done();
+                                  });
+                              });
+                              break;
                         }
                     }
                 });
