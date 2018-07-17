@@ -41,7 +41,7 @@ module.exports = function(env) {
                 Deploy: [ 'java::deploy' ]
             },*/
             AutoAssignElasticIps: false,
-            AutoAssignPublicIps: false,
+            AutoAssignPublicIps: true,
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
             UseEbsOptimizedInstances: false,
