@@ -29,7 +29,19 @@ module.exports = function(env) {
             AutoAssignPublicIps: false,
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
-            UseEbsOptimizedInstances: false
+            UseEbsOptimizedInstances: false,
+            CustomJson: {
+                           "opsworks_java": {
+                               "jvm_version": 8,
+                               "java_app_server_version": 8
+                           },
+                           "custom_env": {
+                               "gigya-qa": {
+                                   "type": "java",
+                                   "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
+                               }
+                           }
+                        }
         },
 
         /* Yogesh - App Default Settings */
@@ -37,7 +49,6 @@ module.exports = function(env) {
             Type: 'java',
             AppSource: {
               Type: 'git',
-              Password: 'Oct!1234'
               Url: 'https://github.com/ykhati/Opsworks.git',
               Username: 'ykhati'
             },
@@ -46,7 +57,8 @@ module.exports = function(env) {
 
         /* Default Instance Settings */
         defaultInstanceParams: {
-            Architecture: 'x86_64'
+            Architecture: 'x86_64',
+            SshKeyName: 'yogesh-west2-keypair.pem'
         }
     };
 

@@ -27,7 +27,7 @@ function OpsWorksHelper(opsworks, env) {
                 defaultParams.defaultAppParams.StackId = stackData.StackId;
                 defaultParams.defaultAppParams.Name = appName;
                 defaultParams.defaultAppParams.Shortname = appName;
-                
+
                 createApp(stackData, defaultParams.defaultAppParams, instanceType, appName, function() {
                   done(stackData);
                 });
@@ -240,18 +240,10 @@ function OpsWorksHelper(opsworks, env) {
 
                         switch(env) {
                             case 'qa':
-                                defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2b';
-                                defaultParams.defaultInstanceParams.Hostname = hostName + '-app-1';
-                                defaultParams.defaultInstanceParams.SubnetId = 'subnet-b4e190cd';
-
                                 createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
                                     defaultParams.defaultInstanceParams.AvailabilityZone = 'us-west-2a';
                                     defaultParams.defaultInstanceParams.Hostname = hostName + '-app-2';
                                     defaultParams.defaultInstanceParams.SubnetId = 'subnet-85ec7ece';
-
-                                    createAndStartLbInstances(defaultParams.defaultInstanceParams, function() {
-                                        done();
-                                    });
                                 });
                                 break;
                         }
