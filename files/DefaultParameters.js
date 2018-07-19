@@ -2,20 +2,20 @@ var fs = require('fs');
 
 module.exports = function(env) {
 
-    var customDoc = {
-                        "opsworks_java": {
-                        "jvm_version": 8,
-                        "java_app_server_version": 8
-                        },
-                        "custom_env": {
-                          "gigya-qa": {
-                            "type": "java",
-                            "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
-                          }
-                        }
-                    }
+    var customJson = {
+      "opsworks_java": {
+      "jvm_version": 8,
+      "java_app_server_version": 8
+      },
+      "custom_env": {
+        "gigya-qa": {
+          "type": "java",
+          "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
+        }
+      }
+    }
 
-    var jsonDoc = JSON.stringify(customDoc)    ;
+    var customJsonString = JSON.stringify(customJson) ;
 
     var settings = {
         defaultStackParams: {
@@ -45,7 +45,7 @@ module.exports = function(env) {
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
             UseEbsOptimizedInstances: false,
-            CustomJson: jsonDoc
+            CustomJson: customJsonString
         },
 
         /* Yogesh - App Default Settings */
@@ -61,8 +61,7 @@ module.exports = function(env) {
 
         /* Default Instance Settings */
         defaultInstanceParams: {
-            Architecture: 'x86_64',
-            SshKeyName: 'yogesh-west2-keypair.pem'
+            Architecture: 'x86_64'
         }
     };
 
