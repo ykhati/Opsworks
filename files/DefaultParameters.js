@@ -61,7 +61,8 @@ module.exports = function(env) {
 
         /* Default Instance Settings */
         defaultInstanceParams: {
-            Architecture: 'x86_64'
+            Architecture: 'x86_64',
+            SshKeyName: 'ssh_key'
         }
     };
 
