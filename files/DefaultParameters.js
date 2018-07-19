@@ -31,7 +31,8 @@ module.exports = function(env) {
                 Type: 'git',
                 Url: 'https://github.com/ykhati/ChefRepo.git'
             },
-            UseOpsworksSecurityGroups: true
+            UseOpsworksSecurityGroups: true,
+            DefaultSshKeyName: 'yogesh-west2-keypair.pem'
         },
 
         /* Layer Default Settings */
@@ -61,8 +62,7 @@ module.exports = function(env) {
 
         /* Default Instance Settings */
         defaultInstanceParams: {
-            Architecture: 'x86_64',
-            SshKeyName: 'yogesh-west2-keypair.pem'
+            Architecture: 'x86_64'
         }
     };
 
