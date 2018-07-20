@@ -32,7 +32,7 @@ module.exports = function(env) {
                 Url: 'https://github.com/ykhati/ChefRepo.git'
             },
             UseOpsworksSecurityGroups: true,
-            DefaultSshKeyName: 'yogesh-west2-keypair.pem'
+            DefaultSshKeyName: 'yogesh-west2-keypair'
         },
 
         /* Layer Default Settings */
@@ -49,7 +49,7 @@ module.exports = function(env) {
             CustomJson: customJsonString
         },
 
-        /* Yogesh - App Default Settings */
+        /* App Default Settings */
         defaultAppParams: {
             Type: 'java',
             AppSource: {
