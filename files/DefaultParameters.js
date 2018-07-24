@@ -4,14 +4,8 @@ module.exports = function(env) {
 
     var customJson = {
       "opsworks_java": {
-      "jvm_version": 8,
-      "java_app_server_version": 8
-      },
-      "custom_env": {
-        "gigya-qa": {
-          "type": "java",
-          "jar": "B2BPlatformServices-1.0.0.RELEASE.jar"
-        }
+        "jvm_version": 8,
+        "java_app_server_version": 8
       }
     }
 
@@ -32,32 +26,18 @@ module.exports = function(env) {
                 Url: 'https://github.com/ykhati/ChefRepo.git'
             },
             UseOpsworksSecurityGroups: true,
-            DefaultSshKeyName: 'yogesh-west2-keypair'
+            DefaultSshKeyName: 'khatitest'
         },
 
         /* Layer Default Settings */
         defaultLayerParams: {
             Type: 'java-app',
-            CustomRecipes: {
-                Deploy: [ 'java::deploy' ]
-            },
             AutoAssignElasticIps: false,
             AutoAssignPublicIps: true,
             EnableAutoHealing: true,
             InstallUpdatesOnBoot: true,
             UseEbsOptimizedInstances: false,
             CustomJson: customJsonString
-        },
-
-        /* App Default Settings */
-        defaultAppParams: {
-            Type: 'java',
-            AppSource: {
-              Type: 'git',
-              Url: 'https://github.com/ykhati/Opsworks.git',
-              Username: 'ykhati'
-            },
-            EnableSsl: false
         },
 
         /* Default Instance Settings */
