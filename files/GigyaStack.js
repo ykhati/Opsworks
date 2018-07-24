@@ -19,7 +19,7 @@ if (!_.isUndefined(appName) && !_.isUndefined(environment)) {
     defaultParams.defaultStackParams.Name = appName + '-' + opsworksHelper.getTimeStamp();
     defaultParams.defaultStackParams.Attributes = { Color: 'rgb(209, 105, 41)' };
 
-    opsworksHelper.createStack(defaultParams.defaultStackParams, appName, 't2.micro', function(stackData) {
+    opsworksHelper.createStack(defaultParams.defaultStackParams, appName, 't1.micro', function(stackData) {
         if (stackData) {
             var isOnline = false;
             opsworksHelper.checkOldLayer(appName, function(oldLayerId) {
